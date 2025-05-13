@@ -1,0 +1,25 @@
+# Function to handle file reading errors
+def handle_file_error():
+    filename = input("Please enter the filename: ")
+
+    try:
+        # Try opening and reading the file
+        with open(filename, 'r') as file:
+            content = file.read()
+            print("File contents successfully read!")
+            print(content)  # Print the content or you can return it if needed.
+    
+    except FileNotFoundError:
+        print(f"Error: The file {filename} was not found.")
+    except PermissionError:
+        print(f"Error: You do not have permission to read the file {filename}.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+# Example usage
+handle_file_error()
+
+# Example usage for file read and write
+input_filename = 'input.txt'
+output_filename = 'output.txt'
+read_and_modify_file(input_filename, output_filename)
